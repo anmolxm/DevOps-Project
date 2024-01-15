@@ -1,0 +1,9 @@
+- name: Pull the Docker image
+  hosts: web-servers
+  become: yes
+  tasks:
+    - name: Pull the Docker image
+      docker_image:
+        name: docker.io/ubuntu123am/my-apache-image
+        source: pull
+        state: present
