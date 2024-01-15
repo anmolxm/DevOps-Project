@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-apache-deployment
+spec:
+  replicas: 3  # Number of pod replicas
+  selector:
+    matchLabels:
+      app: my-apache-pod
+  template:
+    metadata:
+      labels:
+        app: my-apache-pod
+    spec:
+      containers:
+      - name: my-apache-container
+        image: docker.io/ubuntu123am/my-apache-image
+        ports:
+        - containerPort: 80
